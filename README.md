@@ -32,7 +32,7 @@
 
 ## Особенности.
 <p align="center">
-  <img src="images/preview.png" height="600"/>
+  <img src="Hardware/BOARD_PREVIEW.pdf" height="600"/>
 </p>
 
 Плата построена на базе современного 32-битного МК STM32F407VET6.
