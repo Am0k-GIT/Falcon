@@ -13,10 +13,10 @@
 
 Плата поддерживает и протестированна с прошивкой на базе Marlin 2.1.2.5. 
 В репозитории вы можете найти пример исходников модифицированной прошивки с уже добавленной поддержкой платы, 
-а так же инструкцию по модицикации оригинальных исходников <a href="https://github.com/MarlinFirmware/Marlin">Marlin</a>. 
+а так же [инструкцию](/Software/Readme.md) по модицикации оригинальных исходников <a href="https://github.com/MarlinFirmware/Marlin">Marlin</a>. 
 Для компиляции использовался <a href="https://code.visualstudio.com">Visual Studio Code</a> с 
-установленным <a href="https://platformio.org/">PlatformIO</a>, перед сборкой выбираем окружение `env:Falcon_dfu` 
-для прошивки по DFU, `env:Falcon_stlink` для прошивки с помощью ST-LINK.
+установленным <a href="https://platformio.org/">PlatformIO</a>, перед сборкой выбираем окружение `env:Falcon_v1_dfu` 
+для прошивки по DFU, `env:Falcon_v1_stlink` для прошивки с помощью ST-LINK.
 
 ## Дополнительное ПО.
 
