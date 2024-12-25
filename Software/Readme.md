@@ -30,6 +30,10 @@
 5.	В файл `..\ini\stm32f4.ini` добавляем определение окружения:
 
 ```C
+#
+# Falcon_v1 board
+# STM32F407VET6 ARM Cortex-M4
+#
 [env:Falcon_v1]
 extends                     = stm32_variant
 platform_packages           = ${stm_flash_drive.platform_packages}
@@ -58,14 +62,14 @@ upload_protocol             = stlink
 7. 	В файл `..\Marlin\src\module\thermistor\thermistors.h` добавляем строки:
 
 ```C
-#if ANY_THERMISTOR_IS(1050)
+#if ANY_THERMISTOR_IS(1050)   // Pt1000 with MCP6022 amp
   #include "thermistor_1050.h"
 #endif
 ```
 
 8.	В файлe `..\Marlin\Configuration.h` производим необходимые изменения 
 
-- и указываем нашу плату:
+- указываем нашу плату:
 ```C
 #ifndef MOTHERBOARD
   #define MOTHERBOARD BOARD_FALCON_V1
