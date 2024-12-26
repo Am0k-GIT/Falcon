@@ -46,7 +46,7 @@ build_flags                 = ${stm32_variant.build_flags} ${stm32f4_I2C1.build_
                                -DHAL_UART_MODULE_ENABLED
                                -DSERIAL_RX_BUFFER_SIZE=1024 -DSERIAL_TX_BUFFER_SIZE=1024
                                -DSTEP_TIMER_IRQ_PRIO=0
-monitor_speed               = 115200
+monitor_speed               = 250000
 
 [env:Falcon_v1_dfu]
 extends                     = env:Falcon_v1
@@ -81,7 +81,7 @@ upload_protocol             = stlink
 ```
 - устанавливаем скорость обмена:
 ```C
-#define BAUDRATE 115200
+#define BAUDRATE 250000
 ```
 - при использовании датчиков температуры PT1000 (при их подключении к соответствующим разъемам)
 указываем это:
