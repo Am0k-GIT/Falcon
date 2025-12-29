@@ -39,8 +39,8 @@ extends                     = stm32_variant
 platform_packages           = ${stm_flash_drive.platform_packages}
 board                       = genericSTM32F407VET6
 board_build.variant         = MARLIN_FALCON
-board_build.offset          = 0x0000
-board_upload.offset_address = 0x08000000
+board_build.offset          = 0x8000
+;board_upload.offset_address = 0x08000000
 build_flags                 = ${stm32_variant.build_flags} ${stm32f4_I2C1.build_flags}
                                -Os -DHAL_PCD_MODULE_ENABLED
                                -DHAL_UART_MODULE_ENABLED
@@ -89,8 +89,16 @@ upload_protocol             = stlink
 #define TEMP_SENSOR_0 1050
 ```
 
-9.	Прошиваем выбрав окружение `env:Falcon_v1_dfu` для прошивки по USB (для этого необходимо перезагрузить плату 
-кнопкой RST с зажатой кнопкой BOOT0), либо `env:Falcon_v1_stlink` для прошивки с помощью ST-LINK через специальный
-разъем программирования на плате.
+9.	Первоначально необходимо залить сам загрузчик. Используйте файл BOOTLOADER.bin из репозитория. 
+Предварительно выполните полную очистку FLASH. После загрузите файл bootloader’а при помощи ST-Link и 
+STM32CubeProgrammer. 
 
-После прошивки не забываем сбросить настройки EEPROM командой `M502` и сохранить их вновь командой `M500`.
+10. Соберите файл прошивки используя окружение `env:Falcon_v1`. Затем вы можете заливать/обновлять 
+прошивку просто записывая файл прошивки Marlin с именем firmware.bin на SD карту. При включении принтера 
+bootloader проверит SD карту на наличие файла firmware.bin и в случае его обнаружения запишет его во 
+FLASH память МК, а после удачной верификации переименует файл в firmware.cur и запустит основную прошивку.
+Так же вы можете использовать окружение `env:Falcon_v1_dfu` для прошивки по USB (для этого необходимо 
+перезагрузить плату кнопкой RST с зажатой кнопкой BOOT0), либо `env:Falcon_v1_stlink` для прошивки 
+с помощью ST-LINK через специальный разъем программирования на плате.
+
+11. После прошивки не забываем сбросить настройки EEPROM командой `M502` и сохранить их вновь командой `M500`.
