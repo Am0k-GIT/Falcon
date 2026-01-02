@@ -40,7 +40,7 @@ platform_packages           = ${stm_flash_drive.platform_packages}
 board                       = genericSTM32F407VET6
 board_build.variant         = MARLIN_FALCON
 board_build.offset          = 0x8000
-;board_upload.offset_address = 0x08000000
+board_upload.offset_address = 0x08000000
 build_flags                 = ${stm32_variant.build_flags} ${stm32f4_I2C1.build_flags}
                                -Os -DHAL_PCD_MODULE_ENABLED
                                -DHAL_UART_MODULE_ENABLED
@@ -89,7 +89,7 @@ upload_protocol             = stlink
 #define TEMP_SENSOR_0 1050
 ```
 
-9.	Первоначально необходимо залить сам загрузчик. Используйте файл BOOTLOADER.bin из репозитория. 
+9.	Первоначально необходимо залить сам загрузчик. Используйте файл BOOTLOADER_FALCON_SPI_SD.hex из репозитория. 
 Предварительно выполните полную очистку FLASH. После загрузите файл bootloader’а при помощи ST-Link и 
 STM32CubeProgrammer. 
 
